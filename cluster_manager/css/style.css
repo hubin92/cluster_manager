@@ -1,0 +1,469 @@
+/* 集群管理插件样式 */
+.cluster-manager-wrapper {
+    padding: 15px;
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+}
+
+.cluster-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+}
+
+.cluster-toolbar h3 {
+    margin: 0 15px 0 0;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.toolbar-left,
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cluster-body {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    gap: 15px;
+}
+
+/* ========= 左侧分组侧边栏 ========= */
+.cluster-sidebar {
+    width: 220px;
+    min-width: 220px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sidebar-header {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    font-weight: 600;
+    font-size: 14px;
+    background: #fafafa;
+}
+
+.sidebar-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 5px 0;
+}
+
+.group-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+    position: relative;
+    user-select: none;
+}
+
+.group-item:hover {
+    background: #f5f5f5;
+}
+
+.group-item.active {
+    background: #e8f4fd;
+    border-left-color: #1890ff;
+}
+
+.group-item.drag-over {
+    background: #fff3e0;
+    border-left-color: #ff9800;
+}
+
+.group-item.dragging {
+    opacity: 0.5;
+    transform: scale(0.98);
+}
+
+.group-item .group-icon {
+    width: 24px;
+    text-align: center;
+    margin-right: 8px;
+    color: #666;
+}
+
+.group-item .group-name {
+    flex: 1;
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.group-item .group-count {
+    background: #e0e0e0;
+    color: #666;
+    border-radius: 10px;
+    padding: 1px 7px;
+    font-size: 11px;
+    margin-right: 5px;
+}
+
+.group-item .group-actions {
+    display: none;
+    gap: 3px;
+}
+
+.group-item:hover .group-actions {
+    display: flex;
+}
+
+.group-item .group-actions a {
+    color: #999;
+    font-size: 12px;
+    padding: 2px 4px;
+}
+
+.group-item .group-actions a:hover {
+    color: #1890ff;
+}
+
+.group-item .drag-handle {
+    cursor: grab;
+    color: #ccc;
+    margin-right: 5px;
+    font-size: 10px;
+}
+
+.group-item .drag-handle:active {
+    cursor: grabbing;
+}
+
+/* ========= 右侧内容区 ========= */
+.cluster-content {
+    flex: 1;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.content-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #999;
+}
+
+/* ========= 节点卡片 ========= */
+.node-card {
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+
+.node-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.node-card-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: #fafafa;
+    border-bottom: 1px solid #eee;
+    user-select: none;
+}
+
+.node-card-header .drag-handle {
+    cursor: grab;
+    color: #ccc;
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+.node-card-header .drag-handle:active {
+    cursor: grabbing;
+}
+
+.node-card-header .node-name {
+    font-weight: 600;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.node-card-header .node-host {
+    color: #999;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.node-card-header .node-arch {
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-right: 8px;
+}
+
+.node-card-header .node-arch.arm {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.node-card-header .node-arch.amd {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+.node-card-header .node-status {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-dot.online {
+    background: #52c41a;
+    box-shadow: 0 0 4px rgba(82, 196, 26, 0.5);
+}
+
+.status-dot.offline {
+    background: #ff4d4f;
+}
+
+.status-text {
+    font-size: 12px;
+    color: #666;
+}
+
+.master-badge {
+    background: #fff7e6;
+    color: #fa8c16;
+    border: 1px solid #ffd591;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+}
+
+.node-card-body {
+    padding: 15px;
+}
+
+/* ========= 服务栏 ========= */
+.service-section {
+    margin-bottom: 12px;
+}
+
+.service-section-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    background: #fff;
+    transition: background 0.2s;
+}
+
+.service-item:hover {
+    background: #fafafa;
+}
+
+.service-item .service-name {
+    font-weight: 500;
+    min-width: 140px;
+}
+
+.service-item .service-status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    min-width: 80px;
+    margin-left: 15px;
+}
+
+.service-item .service-status .status-dot {
+    width: 6px;
+    height: 6px;
+}
+
+.service-item .service-status .running {
+    color: #52c41a;
+    font-size: 12px;
+}
+
+.service-item .service-status .stopped {
+    color: #ff4d4f;
+    font-size: 12px;
+}
+
+.service-item .service-actions {
+    display: flex;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.service-item .service-actions .btn {
+    padding: 2px 10px;
+    font-size: 12px;
+}
+
+/* ========= 自启动栏 ========= */
+.autostart-section {
+    margin-bottom: 12px;
+}
+
+.autostart-item {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    margin-bottom: 4px;
+}
+
+.autostart-item .auto-status {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.autostart-item .auto-status .enabled {
+    color: #52c41a;
+    font-size: 12px;
+}
+
+.autostart-item .auto-status .disabled {
+    color: #ff4d4f;
+    font-size: 12px;
+}
+
+/* ========= 主服务栏 ========= */
+.main-service-section {
+    margin-bottom: 12px;
+    background: #fffbe6;
+    border: 1px solid #ffe58f;
+    border-radius: 4px;
+    padding: 12px;
+}
+
+.main-service-section .section-title {
+    color: #d48806;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.db-config-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 12px;
+    color: #666;
+}
+
+.db-config-info .db-info-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ========= 子面板设置 ========= */
+.sub-panel-section {
+    margin-bottom: 12px;
+}
+
+.sub-panel-btn {
+    font-size: 12px;
+    padding: 2px 10px;
+}
+
+/* ========= 拖拽样式 ========= */
+.drag-placeholder {
+    border: 2px dashed #1890ff;
+    background: #e6f7ff;
+    border-radius: 4px;
+    margin: 4px 0;
+    min-height: 40px;
+}
+
+.node-card.dragging {
+    opacity: 0.5;
+    transform: rotate(1deg);
+}
+
+.node-card.drag-over {
+    border-color: #1890ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* ========= 响应式 ========= */
+@media (max-width: 768px) {
+    .cluster-body {
+        flex-direction: column;
+    }
+    .cluster-sidebar {
+        width: 100%;
+        min-width: 100%;
+        max-height: 200px;
+    }
+    .cluster-toolbar {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* ========= 通用 ========= */
+.inline-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.help-block {
+    font-size: 12px;
+    color: #999;
+    margin-top: 4px;
+}
+
+.btn-group {
+    display: flex;
+    gap: 8px;
+}
+
+.db-config-section,
+.sync-config-section {
+    margin-bottom: 15px;
+}

@@ -1,0 +1,17 @@
+{
+    "title": "集群管理",
+    "name": "cluster_manager",
+    "ps": "管理mdserver-web服务器集群，支持面板分组、拖拽排序、服务控制、自启动管理、主服务数据库配置和子面板设置",
+    "version": "1.0.0",
+    "author": "ClusterManager",
+    "home": "https://github.com/midoks/mdserver-web",
+    "date": "2026-08-04",
+    "arch": ["x86_64", "aarch64"],
+    "type": "扩展",
+    "price": 0,
+    "tab": {
+        "name": "集群",
+        "icon": "fa fa-server",
+        "add": true
+    }
+}
